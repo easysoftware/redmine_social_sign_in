@@ -1,0 +1,15 @@
+<h3><%= l(:label_twitter) %></h3>
+<p>
+  <%= label_tag('settings_twitter_enabled', l(:enable, scope: [:redmine_social_sign_in])) %>
+  <%= check_box_tag('settings[twitter_enabled]', '1', @settings['twitter_enabled'] == '1') %>
+</p>
+
+<p>
+  <%= label_tag('settings_twitter_app_id', l(:app_id, scope: [:redmine_social_sign_in])) %>
+  <%= text_field_tag 'settings[twitter_app_id]', @settings['twitter_app_id'] %>
+</p>
+
+<p>
+  <%= label_tag('settings_twitter_app_secret', l(:app_secret, scope: [:redmine_social_sign_in])) %>
+  <%= text_field_tag 'settings[twitter_app_secret]', @settings['twitter_app_secret'] %>
+</p>

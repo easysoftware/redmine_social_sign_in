@@ -1,0 +1,60 @@
+<h3><%= l(:label_google) %></h3>
+
+<p>
+  <%= label_tag('settings_google_enabled', l(:enable, scope: [:redmine_social_sign_in])) %>
+  <%= check_box_tag('settings[google_enabled]', '1', @settings['google_enabled'] == '1') %>
+</p>
+
+<p>
+  <%= label_tag('settings_google_app_id', l(:app_id, scope: [:redmine_social_sign_in])) %>
+  <%= text_field_tag 'settings[google_app_id]', @settings['google_app_id'] %>
+</p>
+
+<p>
+  <%= label_tag('settings_google_app_secret', l(:app_secret, scope: [:redmine_social_sign_in])) %>
+  <%= text_field_tag 'settings[google_app_secret]', @settings['google_app_secret'] %>
+</p>
+
+<h4><%= l(:label_provider_help) %></h4>
+
+<p>
+  <ul>
+    <li><%= link_to('External help 1', 'https://developers.google.com/identity/sign-in/web/devconsole-project', target: '_blank') %></li>
+    <li><%= link_to('External help 2', 'https://developers.google.com/+/web/api/rest/oauth', target: '_blank') %></li>
+  </ul>
+  <ol>
+    <li>Create new project
+      <ol>
+        <li><%= link_to('https://console.developers.google.com/projectselector/apis/library?pli=1&supportedpurview=project', 'https://console.developers.google.com/projectselector/apis/library?pli=1&supportedpurview=project', target: '_blank') %></li>
+        <li>Click to select a project</li>
+        <li>Click to plus button next to search field</li>
+        <li>Fill "Project name" and click to "Create" button</li>
+      </ol>
+    </li>
+    <li>Enable Google+ API
+      <ol>
+        <li>Find "Google+ API" in API library</li>
+        <li>Click to "Enable" button</li>
+      </ol>
+    </li>
+    <li>Create Client ID
+      <ol>
+        <li>Click to "Credentials" tab</li>
+        <li>Fill Oauth consent screen
+          <ol>
+            <li>"Product name shown to users</li>
+            <li>"Homepage URL" - You can add your <%= Redmine::Info.app_name %> public url (<%= Setting.protocol %>://<%= Setting.host_name %>)</li>
+            <li>"Privacy policy URL" - add public url to your policy</li>
+            <li>"Terms of service URL" - add public url to your terms</li>
+          </ol>
+        </li>
+        <li>Switch to "Credentials" tab </li>
+        <li>Click to "Create credentials" button and choose "OAuth Client ID"</li>
+        <li>Choose application type "Web application"</li>
+        <li>Fill "Authorized redirect URIs" with <%= text_field_tag '', "#{Setting.protocol}://#{Setting.host_name}/social_sign_in/google_oauth2/callback", size: 50 %></li>
+        <li>Click to "Create" button</li>
+      </ol>
+    </li>
+    <li>Copy "Client ID" and "Client secret" codes to fields above</li>
+  </ol>
+</p>
