@@ -1,4 +1,4 @@
-<div class="<%= Redmine::Plugin.registered_plugins[:easy_extensions].nil? ? 'social_sign_in' : 'easy-social-login'%>">
+<div class="<%= Redmine::Plugin.registered_plugins[:easy_extensions].nil? ? 'social_sign_in' : 'easy-social-login' %>">
   <%= l(:label_social_sign_in) %>:
   <% if Setting.plugin_redmine_social_sign_in['google_enabled'] == '1' %>
     <%= link_to('social_sign_in/google_oauth2', title: l(:title_social_sign_in, provider: l(:label_google))) do %>
@@ -18,6 +18,11 @@
   <% if Setting.plugin_redmine_social_sign_in['twitter_enabled'] == '1' %>
     <%= link_to('social_sign_in/twitter', title: l(:title_social_sign_in, provider: l(:label_twitter))) do %>
       <%= image_tag('twitter.png', plugin: 'redmine_social_sign_in') %>
+    <% end %>
+  <% end %>
+  <% if Setting.plugin_redmine_social_sign_in['qq_connect_enabled'] == '1' %>
+    <%= link_to('social_sign_in/qq_connect', title: l(:title_social_sign_in, provider: l(:label_qq_connect))) do %>
+      <%= image_tag('qq_connect.png', plugin: 'redmine_social_sign_in') %>
     <% end %>
   <% end %>
 </div>
