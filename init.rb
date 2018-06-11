@@ -2,7 +2,7 @@ Redmine::Plugin.register :redmine_social_sign_in do
   name 'Social Sign In'
   author 'Easy Software Ltd'
   description 'sign in through social network like Google, Facebook and others '
-  version '1.0.0'
+  version '1.0.2'
   url 'https://www.easysoftware.com'
 
   settings partial: 'settings/redmine_social_sign_in',
@@ -21,7 +21,10 @@ Redmine::Plugin.register :redmine_social_sign_in do
                'twitter_app_secret'    => '',
                'qq_connect_enabled'    => '0',
                'qq_connect_app_id'     => '',
-               'qq_connect_app_secret' => ''
+               'qq_connect_app_secret' => '',
+               'wechat_enabled'        => '0',
+               'wechat_app_id'         => '',
+               'wechat_app_secret'     => ''
            }
 end
 

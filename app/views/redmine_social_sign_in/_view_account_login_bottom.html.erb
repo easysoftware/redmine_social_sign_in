@@ -2,27 +2,32 @@
   <%= l(:label_social_sign_in) %>:
   <% if Setting.plugin_redmine_social_sign_in['google_enabled'] == '1' %>
     <%= link_to('social_sign_in/google_oauth2', title: l(:title_social_sign_in, provider: l(:label_google))) do %>
-      <%= image_tag('google.png', plugin: 'redmine_social_sign_in') %>
+      <%= image_tag('google.png', plugin: 'redmine_social_sign_in', size: '24') %>
     <% end %>
   <% end %>
   <% if Setting.plugin_redmine_social_sign_in['facebook_enabled'] == '1' %>
     <%= link_to('social_sign_in/facebook', title: l(:title_social_sign_in, provider: l(:label_facebook))) do %>
-      <%= image_tag('facebook.png', plugin: 'redmine_social_sign_in') %>
+      <%= image_tag('facebook.png', plugin: 'redmine_social_sign_in', size: '24') %>
     <% end %>
   <% end %>
   <% if Setting.plugin_redmine_social_sign_in['linkedin_enabled'] == '1' %>
     <%= link_to('social_sign_in/linkedin', title: l(:title_social_sign_in, provider: l(:label_linkedin))) do %>
-      <%= image_tag('linkedin.png', plugin: 'redmine_social_sign_in') %>
+      <%= image_tag('linkedin.png', plugin: 'redmine_social_sign_in', size: '24') %>
     <% end %>
   <% end %>
   <% if Setting.plugin_redmine_social_sign_in['twitter_enabled'] == '1' %>
     <%= link_to('social_sign_in/twitter', title: l(:title_social_sign_in, provider: l(:label_twitter))) do %>
-      <%= image_tag('twitter.png', plugin: 'redmine_social_sign_in') %>
+      <%= image_tag('twitter.png', plugin: 'redmine_social_sign_in', size: '24') %>
     <% end %>
   <% end %>
   <% if Setting.plugin_redmine_social_sign_in['qq_connect_enabled'] == '1' %>
     <%= link_to('social_sign_in/qq_connect', title: l(:title_social_sign_in, provider: l(:label_qq_connect))) do %>
-      <%= image_tag('qq_connect.png', plugin: 'redmine_social_sign_in') %>
+      <%= image_tag('qq_connect.png', plugin: 'redmine_social_sign_in', size: '24') %>
+    <% end %>
+  <% end %>
+  <% if Setting.plugin_redmine_social_sign_in['wechat_enabled'] == '1' %>
+    <%= link_to('social_sign_in/qq_connect', title: l(:title_social_sign_in, provider: l(:label_wechat))) do %>
+      <%= image_tag('wechat.png', plugin: 'redmine_social_sign_in', size: '24') %>
     <% end %>
   <% end %>
 </div>
