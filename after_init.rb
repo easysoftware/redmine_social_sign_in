@@ -34,7 +34,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
   provider :wechat, setup: -> (env) {
     env['omniauth.strategy'].options[:client_id]     = Setting.plugin_redmine_social_sign_in['wechat_app_id']
     env['omniauth.strategy'].options[:client_secret] = Setting.plugin_redmine_social_sign_in['wechat_app_secret']
-  }, scope:                'snsapi_base', path_prefix: '/social_sign_in'
+  }, scope:                'snsapi_userinfo', path_prefix: '/social_sign_in'
 
 end
 

@@ -20,10 +20,10 @@ class RedmineSocialSignInCallbacksController < AccountController
         return
       end
 
-      user = User.new
-      user.mail            = auth.info.email if auth.info && !auth.info.email.blank?
-      user.firstname       = auth.info.first_name if auth.info && !auth.info.first_name.blank?
-      user.lastname        = auth.info.last_name if auth.info && !auth.info.last_name.blank?
+      user           = User.new
+      user.mail      = get_attribute(auth, :email)
+      user.firstname = get_attribute(auth, :first_name)
+      user.lastname  = get_attribute(auth, :last_name)
       user.random_password
       user.register
 
@@ -48,6 +48,25 @@ class RedmineSocialSignInCallbacksController < AccountController
     flash[:warning] = params[:message]
 
     redirect_back_or_default home_url
+  end
+
+  protected
+
+  def get_attribute(auth, attr)
+    return nil if auth.nil?
+
+    val = get_raw_attribute(auth.info, attr) if auth.info
+    val ||= get_raw_attribute(auth.extra, attr) if auth.extra
+    val ||= get_raw_attribute(auth.extra.raw_info, attr) if auth.extra.raw_info
+    val ||= get_raw_attribute(auth, attr)
+    val.presence
+  end
+
+  def get_raw_attribute(obj, attr)
+    return nil if obj.nil?
+
+    val = obj.try(attr)
+    val.presence
   end
 
 end
