@@ -26,7 +26,7 @@
     <% end %>
   <% end %>
   <% if Setting.plugin_redmine_social_sign_in['wechat_enabled'] == '1' %>
-    <%= link_to('social_sign_in/qq_connect', title: l(:title_social_sign_in, provider: l(:label_wechat))) do %>
+    <%= link_to('social_sign_in/wechat', title: l(:title_social_sign_in, provider: l(:label_wechat))) do %>
       <%= image_tag('wechat.png', plugin: 'redmine_social_sign_in', size: '24') %>
     <% end %>
   <% end %>
