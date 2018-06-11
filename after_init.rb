@@ -29,12 +29,12 @@ Rails.application.config.middleware.use OmniAuth::Builder do
   provider :qq_connect, setup: -> (env) {
     env['omniauth.strategy'].options[:client_id]     = Setting.plugin_redmine_social_sign_in['qq_connect_app_id']
     env['omniauth.strategy'].options[:client_secret] = Setting.plugin_redmine_social_sign_in['qq_connect_app_secret']
-  }, path_prefix:              '/social_sign_in'
+  }, scope:                    'get_user_info', path_prefix: '/social_sign_in'
 
   provider :wechat, setup: -> (env) {
     env['omniauth.strategy'].options[:client_id]     = Setting.plugin_redmine_social_sign_in['wechat_app_id']
     env['omniauth.strategy'].options[:client_secret] = Setting.plugin_redmine_social_sign_in['wechat_app_secret']
-  }, path_prefix:          '/social_sign_in'
+  }, scope:                'snsapi_base', path_prefix: '/social_sign_in'
 
 end
 
