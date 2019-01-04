@@ -1,4 +1,4 @@
-ActionDispatch::Reloader.to_prepare do
+RedmineExtensions::Reloader.to_prepare do
 
   require 'redmine_social_sign_in/hooks'
 
