@@ -1,4 +1,4 @@
-gem 'redmine_extensions', '~> 0.2.14'
+gem 'redmine_extensions'
 
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
