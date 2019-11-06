@@ -2,7 +2,7 @@ Redmine::Plugin.register :redmine_social_sign_in do
   name 'Social Sign In'
   author 'Easy Software Ltd'
   description 'sign in through social network like Google, Facebook and others '
-  version '1.0.2'
+  version '1.0.3'
   url 'https://www.easysoftware.com'
 
   settings partial: 'settings/redmine_social_sign_in',
