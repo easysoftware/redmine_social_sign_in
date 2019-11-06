@@ -3,7 +3,7 @@ class RedmineSocialSignInCallbacksController < AccountController
   skip_before_action :verify_authenticity_token, only: [:social_sign_in_callback, :failure]
 
   def social_sign_in_callback
-    auth = env['omniauth.auth']
+    auth = request.env['omniauth.auth']
     user = User.joins(:email_addresses).where(email_addresses: { address: auth.info.email }).first if auth.info && !auth.info.email.blank?
 
     if user
